@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+}
+
+.container {
+    width: 700px;
+    max-width: 90%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+form {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+#coin {
+    width: 300px;
+
+}
+
+button {
+    padding: 8px 11px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color:rgb(82, 203, 240);
+    border: none;
+    border-radius: 20px;
+}
+
+.crypto-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.crypto-card img {
+    width: 80px;
+}
+
+.crypto-card h3 {
+    font-size: 32px;
+}
+
+.error {
+    color: red;
+    margin: 20px;
+}
+
+.ts-wrapper {
+    width: 300px;
+    font-size: 18px;
+}

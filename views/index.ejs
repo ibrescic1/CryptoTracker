@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crypto Tracker</title>
+
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Crypto Tracker</h1>
+
+        <form action="/" method="GET">
+
+            <select name="coin" id="coin">
+
+                <option value="bitcoin">Bitcoin (BTC)</option>
+                <option value="ethereum">Ethereum (ETH)</option>
+                <option value="tether">Tether (USDT)</option>
+                <option value="binancecoin">BNB (BNB)</option>
+                <option value="solana">Solana (SOL)</option>
+                <option value="usd-coin">USDC (USDC)</option>
+                <option value="xrp">XRP (XRP)</option>
+                <option value="dogecoin">Dogecoin (DOGE)</option>
+                <option value="cardano">Cardano (ADA)</option>
+                <option value="avalanche-2">Avalanche (AVAX)</option>
+                <option value="tron">TRON (TRX)</option>
+                <option value="chainlink">Chainlink (LINK)</option>
+                <option value="polkadot">Polkadot (DOT)</option>
+                <option value="polygon-ecosystem-token">Polygon (POL)</option>
+                <option value="litecoin">Litecoin (LTC)</option>
+                <option value="shiba-inu">Shiba Inu (SHIB)</option>
+                <option value="dai">Dai (DAI)</option>
+                <option value="uniswap">Uniswap (UNI)</option>
+                <option value="cosmos">Cosmos (ATOM)</option>
+                <option value="stellar">Stellar (XLM)</option>
+
+            </select>
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+        <% if (error) { %>
+
+            <div class="error">
+                <%= error %>
+            </div>
+
+            <% } %>
+
+
+                <% if (crypto) { %>
+
+                    <div class="crypto-card">
+
+                        <img src="<%= crypto.image %>" alt="<%= crypto.name %>">
+
+                        <h2>
+                            <%= crypto.name %>
+                                (<%= crypto.symbol ? crypto.symbol.toUpperCase() : "N/A" %>)
+                        </h2>
+
+                        <h3>
+                            $<%= crypto.current_price.toLocaleString() %>
+                        </h3>
+
+                        <p>
+                            24h Change:
+                            <strong>
+                                <%= crypto.price_change_percentage_24h.toFixed(2) %>%
+                            </strong>
+                        </p>
+
+                        <p>
+                            Market Cap:
+                            $<%= crypto.market_cap.toLocaleString() %>
+                        </p>
+
+                        <p>
+                            24h High:
+                            $<%= crypto.high_24h.toLocaleString() %>
+                        </p>
+
+                        <p>
+                            24h Low:
+                            $<%= crypto.low_24h.toLocaleString() %>
+                        </p>
+
+                        <p>
+                            24h Volume:
+                            $<%= crypto.total_volume.toLocaleString() %>
+                        </p>
+
+                    </div>
+
+                    <% } %>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+
+    <script>
+        new TomSelect("#coin", {
+            create: false,
+            placeholder: "Search cryptocurrency..."
+        });
+    </script>
+
+</body>
+
+</html>
